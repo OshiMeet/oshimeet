@@ -1,6 +1,4 @@
 
-コピー
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -1152,8 +1150,131 @@ export default function App() {
   );
 }
 
+// ══════════════════════════════
+//  GOOGLE FORM URL
+// ══════════════════════════════
+const FORM_URL = "https://forms.gle/9ft6VwRpTQc2WAqE6";
+
+// ══════════════════════════════
+//  LANDING PAGE
+// ══════════════════════════════
+const FEATURES = [
+  { icon: "💝", title: "推し活スタイルでマッチング", desc: "全通派・茶の間派・ゆる勢など、熱量とライフスタイルが近い仲間を自動でマッチング。金銭感覚のミスマッチがなくなります。" },
+  { icon: "🟢", title: "現場でリアルタイムに会える", desc: "「今からお茶したい」「銀テ譲りたい」など、ライブ当日に会場周辺でリアルタイムに仲間を探せます。" },
+  { icon: "🎴", title: "グッズ交換が安全にできる", desc: "匿名配送・エスクロー決済・IDタグ認証で、住所も本名も知られずに安心してグッズ交換できます。" },
+  { icon: "💰", title: "推し活家計簿", desc: "チケット・グッズ・遠征費を記録して可視化。仲間と「今月も頑張ったね」と励まし合えます。" },
+  { icon: "🗾", title: "聖地巡礼マップ", desc: "ファンが投稿した聖地・ロケ地を地図で確認。一緒に行く仲間も募集できます。" },
+  { icon: "🏆", title: "信頼バッジ・認定クイズ", desc: "「現場マスター」「取引丁寧」などのバッジと推し歴クイズで、出会い目的ユーザーを排除。安心・安全なコミュニティを実現。" },
+];
+
+function LandingPage({ onEnter }) {
+  const s = {
+    page: { background: "#0B0914", minHeight: "100vh", color: "#F0EDE8", fontFamily: "'Hiragino Kaku Gothic ProN', sans-serif", maxWidth: 430, margin: "0 auto" },
+    hero: { padding: "60px 24px 40px", textAlign: "center", background: "linear-gradient(180deg, rgba(255,92,138,0.12) 0%, transparent 60%)" },
+    logo: { fontSize: 44, marginBottom: 8 },
+    title: { fontSize: 32, fontWeight: 900, background: "linear-gradient(90deg,#FF5C8A,#F5A623,#5CE1FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", marginBottom: 8, letterSpacing: -1 },
+    catch: { fontSize: 14, color: "rgba(240,237,232,0.6)", marginBottom: 24, lineHeight: 1.8 },
+    btnPrimary: { display: "block", width: "100%", background: "linear-gradient(135deg,#FF5C8A,#C084FC)", border: "none", borderRadius: 16, padding: "16px", color: "#fff", fontSize: 16, fontWeight: 900, cursor: "pointer", marginBottom: 12, letterSpacing: 0.5 },
+    btnSecondary: { display: "block", width: "100%", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 16, padding: "14px", color: "rgba(240,237,232,0.7)", fontSize: 14, fontWeight: 700, cursor: "pointer", marginBottom: 32 },
+    section: { padding: "8px 20px 32px" },
+    sectionTitle: { fontSize: 13, color: "#FF5C8A", fontWeight: 700, letterSpacing: 2, marginBottom: 16, textAlign: "center" },
+    card: { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 16, padding: 18, marginBottom: 12 },
+    cardIcon: { fontSize: 28, marginBottom: 10 },
+    cardTitle: { fontSize: 15, fontWeight: 800, color: "#F0EDE8", marginBottom: 6 },
+    cardDesc: { fontSize: 13, color: "rgba(240,237,232,0.55)", lineHeight: 1.7 },
+    safeBox: { background: "rgba(92,225,255,0.06)", border: "1px solid rgba(92,225,255,0.2)", borderRadius: 16, padding: 20, margin: "0 20px 32px", textAlign: "center" },
+    safeTitle: { fontSize: 14, color: "#5CE1FF", fontWeight: 700, marginBottom: 12 },
+    safeItems: { display: "flex", flexDirection: "column", gap: 8 },
+    safeItem: { fontSize: 13, color: "rgba(240,237,232,0.65)", display: "flex", alignItems: "center", gap: 8, textAlign: "left" },
+    formBox: { margin: "0 20px 48px", background: "linear-gradient(135deg,rgba(255,92,138,0.12),rgba(192,132,252,0.1))", border: "1px solid rgba(255,92,138,0.25)", borderRadius: 20, padding: 24, textAlign: "center" },
+    formTitle: { fontSize: 18, fontWeight: 900, color: "#F0EDE8", marginBottom: 8 },
+    formDesc: { fontSize: 13, color: "rgba(240,237,232,0.55)", marginBottom: 20, lineHeight: 1.7 },
+    footer: { textAlign: "center", padding: "20px 0 40px", fontSize: 12, color: "rgba(240,237,232,0.25)" },
+  };
+
+  return (
+    <div style={s.page}>
+      {/* Hero */}
+      <div style={s.hero}>
+        <div style={s.logo}>🌸</div>
+        <div style={s.title}>OshiMeet</div>
+        <div style={{ fontSize: 15, color: "rgba(240,237,232,0.8)", marginBottom: 6, fontWeight: 700 }}>推し活仲間とつながろう</div>
+        <div style={s.catch}>
+          現場の熱量を、一生モノの絆に。<br/>
+          ガチ勢もゆる勢も、あなたにぴったりの<br/>
+          推し活仲間が見つかるマッチングアプリ。
+        </div>
+        <button style={s.btnPrimary} onClick={onEnter}>
+          ✦ アプリを見てみる
+        </button>
+        <button style={s.btnSecondary} onClick={() => window.open(FORM_URL, "_blank")}>
+          📩 リリース通知を受け取る（無料）
+        </button>
+      </div>
+
+      {/* Features */}
+      <div style={s.section}>
+        <div style={s.sectionTitle}>FEATURES</div>
+        {FEATURES.map((f, i) => (
+          <div key={i} style={s.card}>
+            <div style={s.cardIcon}>{f.icon}</div>
+            <div style={s.cardTitle}>{f.title}</div>
+            <div style={s.cardDesc}>{f.desc}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Safety */}
+      <div style={s.safeBox}>
+        <div style={s.safeTitle}>🛡 安心・安全への取り組み</div>
+        <div style={s.safeItems}>
+          {[
+            "24時間AIチャット監視",
+            "推し歴クイズ認証でなりすまし防止",
+            "位置情報共有はイベント前後1時間のみ",
+            "SOS離脱機能・即時ブロック",
+            "18歳未満は対面マッチング非表示",
+          ].map((item, i) => (
+            <div key={i} style={s.safeItem}>
+              <span style={{ color: "#5CE1FF", fontSize: 16 }}>✓</span>
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Form CTA */}
+      <div style={s.formBox}>
+        <div style={s.formTitle}>🎀 正式リリースの通知を受け取る</div>
+        <div style={s.formDesc}>
+          現在テスト公開中です。<br/>
+          正式リリース時にいち早くお知らせします。<br/>
+          アンケートにご協力いただけると嬉しいです！
+        </div>
+        <button
+          onClick={() => window.open(FORM_URL, "_blank")}
+          style={{ background: "linear-gradient(135deg,#FF5C8A,#C084FC)", border: "none", borderRadius: 14, padding: "14px 32px", color: "#fff", fontSize: 14, fontWeight: 900, cursor: "pointer", width: "100%" }}
+        >
+          📩 アンケートに答える（1分）
+        </button>
+      </div>
+
+      <div style={s.footer}>© 2025 OshiMeet  —  現場の熱量を、一生モノの絆に。</div>
+    </div>
+  );
+}
+
+// ══════════════════════════════
+//  ROOT（LP ↔ App 切り替え）
+// ══════════════════════════════
+function Root() {
+  const [showApp, setShowApp] = useState(false);
+  if (showApp) return <App />;
+  return <LandingPage onEnter={() => setShowApp(true)} />;
+}
+
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<App />);
+    root.render(<Root />);
   </script>
 </body>
 </html>
